@@ -1,6 +1,8 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.FindBy;
 
 import com.relevantcodes.extentreports.ExtentTest;
 
@@ -15,7 +17,17 @@ public class LoginPage extends TestNGWrappers{
 			reportStep("This is not Login Page", "FAIL");
 		}		
 	}
+	
+	/*@FindBy(name="uid")
+    WebElement userName;
 
+    
+
+    @FindBy(name="password")
+    WebElement password99Guru;*/
+
+
+	
 	public LoginPage enterUserName(String data){
 		enterById("username", data);
 		return this;
