@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
@@ -39,14 +40,17 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	public RemoteWebDriver driver;
 	protected static Properties prop;
 	public String sUrl,primaryWindowHandle,sHubUrl,sHubPort;
-
+	protected Logger logger= Logger.getLogger(GenericWrappers.class.getName());
 	public GenericWrappers() {
 		Properties prop = new Properties();
 		try {
 			prop.load(new FileInputStream(new File("./src/main/resources/config.properties")));
 			sHubUrl = prop.getProperty("HUB");
+			//logger.info("Hub initiated---->"+sHubUrl);
 			sHubPort = prop.getProperty("PORT");
+			//logger.info("Port initiated---->"+sHubPort);
 			sUrl = prop.getProperty("URL");
+			//logger.info("Url initiated---->"+sUrl);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -569,6 +573,16 @@ public class GenericWrappers extends Reporter implements Wrappers {
 		return number;
 	}
 
+	@Override
+	public void waitTime(long millis) {
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 
 
 }

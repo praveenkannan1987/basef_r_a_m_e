@@ -2,21 +2,23 @@ package utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+
+import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataInputProvider{
-
+	protected static Logger logger= Logger.getLogger(DataInputProvider.class.getName());
 	public static String[][] getSheet(String dataSheetName) {
 
 		String[][] data = null;
-
+		
 		try {
 			FileInputStream fis = new FileInputStream(new File("./data/"+dataSheetName+".xlsx"));
 			XSSFWorkbook workbook = new XSSFWorkbook(fis);
 			XSSFSheet sheet = workbook.getSheetAt(0);	
-
+			//logger.info("");
 			// get the number of rows
 			int rowCount = sheet.getLastRowNum();
 

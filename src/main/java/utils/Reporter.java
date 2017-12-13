@@ -2,15 +2,19 @@ package utils;
 
 import java.io.File;
 
+import org.apache.log4j.Logger;
+
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
+//import wrappers.GenericWrappers;
 
 public abstract class Reporter {
 	public ExtentTest test;
 	public static ExtentReports extent;
 	public String testCaseName, testDescription, category, authors;
-
+	protected Logger logger= Logger.getLogger(Reporter.class.getName());
 	
 	public void reportStep(String desc, String status) {
 

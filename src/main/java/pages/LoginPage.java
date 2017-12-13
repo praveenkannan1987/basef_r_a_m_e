@@ -24,18 +24,16 @@ public class LoginPage extends TestNGWrappers{
 	
 	public LoginPage enterPassword(String data) {		
 		enterByName("PASSWORD", data);	
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return this;
 	}
 	
 	
 	public LoginPage verifyMsg(String text){
 		verifyTextContainsById("errorDiv", text);
+		return this;
+	}
+	public LoginPage threadWait(long millis){
+		waitTime(millis);
 		return this;
 	}
 

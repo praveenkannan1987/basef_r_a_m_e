@@ -175,6 +175,8 @@ public interface Wrappers {
 		 * This method will close all the browsers
 		 * @author Praveen & Rakesh - Chennai
 		 */
+		
+		public void waitTime(long millis);
 		public void quitBrowser();
 		
 
