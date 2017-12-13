@@ -561,16 +561,15 @@ public class GenericWrappers extends Reporter implements Wrappers {
 
 	}
 
-	public long takeSnap(){
-		long number = (long) Math.floor(Math.random() * 900000000L) + 10000000L; 
+	public String takeSnap(String formattedDate,int inc){
 		try {
-			FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE) , new File("./reports/images/"+number+".jpg"));
+			FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE) , new File("./reports/"+formattedDate+"/images/"+inc+".jpg"));
 		} catch (WebDriverException e) {
 			reportStep("The browser has been closed.", "FAIL");
 		} catch (IOException e) {
 			reportStep("The snapshot could not be taken", "WARN");
 		}
-		return number;
+		return ""+inc;
 	}
 
 	@Override

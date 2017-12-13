@@ -2,28 +2,28 @@
 <testng-results skipped="0" failed="2" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="22793" started-at="2017-12-13T03:20:46Z" finished-at="2017-12-13T03:21:09Z">
+  <suite name="Suite" duration-ms="23274" started-at="2017-12-13T19:27:48Z" finished-at="2017-12-13T19:28:11Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="22793" started-at="2017-12-13T03:20:46Z" finished-at="2017-12-13T03:21:09Z">
+    <test name="Test" duration-ms="23274" started-at="2017-12-13T19:27:48Z" finished-at="2017-12-13T19:28:11Z">
       <class name="testCases.TC001_Login">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:testCases.TC001_Login@1efef64]" name="beforeSuite" is-config="true" duration-ms="360" started-at="2017-12-13T08:50:46Z" finished-at="2017-12-13T08:50:46Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeSuite" is-config="true" duration-ms="221" started-at="2017-12-14T00:57:47Z" finished-at="2017-12-14T00:57:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:testCases.TC001_Login@1efef64]" name="beforeTest" is-config="true" duration-ms="0" started-at="2017-12-13T08:50:46Z" finished-at="2017-12-13T08:50:46Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeTest" is-config="true" duration-ms="0" started-at="2017-12-14T00:57:48Z" finished-at="2017-12-14T00:57:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="setValues()[pri:0, instance:testCases.TC001_Login@1efef64]" name="setValues" is-config="true" duration-ms="0" started-at="2017-12-13T08:50:46Z" finished-at="2017-12-13T08:50:46Z">
+        <test-method status="PASS" signature="setValues()[pri:0, instance:testCases.TC001_Login@1275dab]" name="setValues" is-config="true" duration-ms="0" started-at="2017-12-14T00:57:48Z" finished-at="2017-12-14T00:57:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setValues -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testCases.TC001_Login@1efef64]" name="beforeMethod" is-config="true" duration-ms="9144" started-at="2017-12-13T08:50:47Z" finished-at="2017-12-13T08:50:56Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeMethod" is-config="true" duration-ms="8433" started-at="2017-12-14T00:57:48Z" finished-at="2017-12-14T00:57:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="loginLogOut(java.lang.String, java.lang.String)[pri:0, instance:testCases.TC001_Login@1efef64]" name="loginLogOut" duration-ms="564" started-at="2017-12-13T08:50:56Z" data-provider="fetchData" finished-at="2017-12-13T08:50:56Z">
+        <test-method status="FAIL" signature="loginLogOut(java.lang.String, java.lang.String)[pri:0, instance:testCases.TC001_Login@1275dab]" name="loginLogOut" duration-ms="598" started-at="2017-12-14T00:57:57Z" data-provider="fetchData" finished-at="2017-12-14T00:57:57Z">
           <params>
             <param index="0">
               <value>
@@ -42,8 +42,8 @@
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.RuntimeException: FAILED
-	at utils.Reporter.reportStep(Reporter.java:31)
-	at pages.LoginPage.<init>(LoginPage.java:15)
+	at utils.Reporter.reportStep(Reporter.java:57)
+	at pages.LoginPage.<init>(LoginPage.java:17)
 	at testCases.TC001_Login.loginLogOut(TC001_Login.java:23)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -75,15 +75,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginLogOut -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testCases.TC001_Login@1efef64]" name="afterMethod" is-config="true" duration-ms="2314" started-at="2017-12-13T08:50:56Z" finished-at="2017-12-13T08:50:59Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterMethod" is-config="true" duration-ms="2360" started-at="2017-12-14T00:57:57Z" finished-at="2017-12-14T00:58:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testCases.TC001_Login@1efef64]" name="beforeMethod" is-config="true" duration-ms="7442" started-at="2017-12-13T08:50:59Z" finished-at="2017-12-13T08:51:06Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeMethod" is-config="true" duration-ms="8494" started-at="2017-12-14T00:58:00Z" finished-at="2017-12-14T00:58:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="loginLogOut(java.lang.String, java.lang.String)[pri:0, instance:testCases.TC001_Login@1efef64]" name="loginLogOut" duration-ms="531" started-at="2017-12-13T08:51:06Z" data-provider="fetchData" finished-at="2017-12-13T08:51:07Z">
+        <test-method status="FAIL" signature="loginLogOut(java.lang.String, java.lang.String)[pri:0, instance:testCases.TC001_Login@1275dab]" name="loginLogOut" duration-ms="584" started-at="2017-12-14T00:58:08Z" data-provider="fetchData" finished-at="2017-12-14T00:58:09Z">
           <params>
             <param index="0">
               <value>
@@ -102,8 +102,8 @@
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.RuntimeException: FAILED
-	at utils.Reporter.reportStep(Reporter.java:31)
-	at pages.LoginPage.<init>(LoginPage.java:15)
+	at utils.Reporter.reportStep(Reporter.java:57)
+	at pages.LoginPage.<init>(LoginPage.java:17)
 	at testCases.TC001_Login.loginLogOut(TC001_Login.java:23)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -135,15 +135,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginLogOut -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testCases.TC001_Login@1efef64]" name="afterMethod" is-config="true" duration-ms="2312" started-at="2017-12-13T08:51:07Z" finished-at="2017-12-13T08:51:09Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterMethod" is-config="true" duration-ms="2319" started-at="2017-12-14T00:58:09Z" finished-at="2017-12-14T00:58:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:testCases.TC001_Login@1efef64]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-12-13T08:51:09Z" finished-at="2017-12-13T08:51:09Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-12-14T00:58:11Z" finished-at="2017-12-14T00:58:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testCases.TC001_Login@1efef64]" name="afterSuite" is-config="true" duration-ms="307" started-at="2017-12-13T08:51:09Z" finished-at="2017-12-13T08:51:09Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterSuite" is-config="true" duration-ms="252" started-at="2017-12-14T00:58:11Z" finished-at="2017-12-14T00:58:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
