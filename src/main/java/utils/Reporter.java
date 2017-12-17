@@ -24,67 +24,54 @@ public abstract class Reporter {
 	public String testCaseName, testDescription, category, authors;
 	protected Logger logger= Logger.getLogger(Reporter.class.getName());
 
-	public String formattedDate; 
-	int inc=1;
 
-	public void reportStep(String desc, String status) {
-		Properties props = new Properties();
-		try {
-			props.load(new FileInputStream(new File("./src/main/resources/folder.properties")));
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		formattedDate = props.getProperty("foldername");
+	public void reportStep(String desc,String formattedDate,String testCasefolder, String status) {
 		String snapNumber = "";
 
 		try {
-			snapNumber=takeSnap(formattedDate,inc);
+			snapNumber=takeSnap(formattedDate,testCasefolder);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		// Write if it is successful or failure or information
 		if(status.toUpperCase().equals("PASS")){
-			test.log(LogStatus.PASS, desc+test.addScreenCapture("./../reports/images/"+formattedDate+"/"+snapNumber+".jpg"));
-			inc=inc+1;
+			test.log(LogStatus.PASS, desc+test.addScreenCapture("./../reports/"+formattedDate+"/"+snapNumber+".jpg"));
 		}else if(status.toUpperCase().equals("FAIL")){
-			test.log(LogStatus.FAIL, desc+test.addScreenCapture("./../reports/images/"+formattedDate+"/"+snapNumber+".jpg"));
-			inc=inc+1;
+			test.log(LogStatus.FAIL, desc+test.addScreenCapture("./../reports/"+formattedDate+"/"+snapNumber+".jpg"));
 			throw new RuntimeException("FAILED");
 		}else if(status.toUpperCase().equals("INFO")){
 			test.log(LogStatus.INFO, desc);
 		}else if(status.toUpperCase().equals("WARN")){
-			test.log(LogStatus.WARNING, desc+test.addScreenCapture("./../reports/images/"+formattedDate+"/"+snapNumber+".jpg"));
-			inc=inc+1;
+			test.log(LogStatus.WARNING, desc+test.addScreenCapture("./../reports/"+formattedDate+"/"+snapNumber+".jpg"));
+		}
+	}
+	public void reportStep(String desc, String status) {
+		String snapNumber = "";
+
+		try {
+			snapNumber=takeSnap();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// Write if it is successful or failure or information
+		if(status.toUpperCase().equals("PASS")){
+			test.log(LogStatus.PASS, desc+test.addScreenCapture("./../reports/images/"+snapNumber+".jpg"));
+		}else if(status.toUpperCase().equals("FAIL")){
+			test.log(LogStatus.FAIL, desc+test.addScreenCapture("./../reports/images/"+snapNumber+".jpg"));
+			throw new RuntimeException("FAILED");
+		}else if(status.toUpperCase().equals("INFO")){
+			test.log(LogStatus.INFO, desc);
+		}else if(status.toUpperCase().equals("WARN")){
+			test.log(LogStatus.WARNING, desc+test.addScreenCapture("./../reports/images/"+snapNumber+".jpg"));
 		}
 	}
 
-	public abstract String takeSnap(String formattedDate1,int increament);
+	public abstract String takeSnap(String formattedDate,String testCasefolder);
+	public abstract String takeSnap();
 
-
-	public ExtentReports startResult(){
-		formattedDate="";
-		Date newDate=new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddhhmmss");
-		formattedDate= formatter.format(newDate);
-		try {
-			Properties props = new Properties();
-			props.load(new FileInputStream(new File("./src/main/resources/folder.properties")));
-			props.setProperty("foldername", formattedDate);
-			FileOutputStream output = new FileOutputStream("./src/main/resources/folder.properties");
-			props.store(new FileOutputStream(new File("./src/main/resources/folder.properties")), "");
-			output.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public ExtentReports startResult(String formattedDate){
 		extent = new ExtentReports("./reports/"+formattedDate+"/result.html", false);
 		extent.loadConfig(new File("./src/main/resources/extent-config.xml"));
 		return extent;

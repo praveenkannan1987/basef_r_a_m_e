@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -35,29 +37,42 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	public GenericWrappers(RemoteWebDriver driver, ExtentTest test) {
         this.driver = driver;
         this.test=test;
-   }
+	}
 
 	public RemoteWebDriver driver;
+	public String formattedDate,testCaseName1;
 	protected static Properties prop;
+	int ic;
 	public String sUrl,primaryWindowHandle,sHubUrl,sHubPort;
 	protected Logger logger= Logger.getLogger(GenericWrappers.class.getName());
 	public GenericWrappers() {
-		Properties prop = new Properties();
+		Properties propConfig = new Properties();
 		try {
-			prop.load(new FileInputStream(new File("./src/main/resources/config.properties")));
-			sHubUrl = prop.getProperty("HUB");
-			//logger.info("Hub initiated---->"+sHubUrl);
-			sHubPort = prop.getProperty("PORT");
-			//logger.info("Port initiated---->"+sHubPort);
-			sUrl = prop.getProperty("URL");
-			//logger.info("Url initiated---->"+sUrl);
+			propConfig.load(new FileInputStream(new File("./src/main/resources/config.properties")));
+			sHubUrl = propConfig.getProperty("HUB");
+			sHubPort = propConfig.getProperty("PORT");
+			sUrl = propConfig.getProperty("URL");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	public String folderCreation(){
+		formattedDate=""+new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		return formattedDate;
+	}
 
+	public void suppressLogs(){
+		//To suppress org.apache.http.wire logs
+				java.util.logging.Logger.getLogger("org.apache.http.wire").setLevel(java.util.logging.Level.FINEST);
+				java.util.logging.Logger.getLogger("org.apache.http.headers").setLevel(java.util.logging.Level.FINEST);
+				System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+				System.setProperty("org.apache.commons.logging.simplelog.showdatetime", "true");
+				System.setProperty("org.apache.commons.logging.simplelog.log.httpclient.wire", "ERROR");
+				System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "ERROR");
+				System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http.headers", "ERROR");
+	}
 	public void loadObjects() {
 		prop = new Properties();
 		try {
@@ -84,8 +99,8 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	 * @return 
 	 * 
 	 */
-	public RemoteWebDriver invokeApp(String browser) {
-		return invokeApp(browser,false);
+	public RemoteWebDriver invokeApp(String browser,String testCasefolder) {
+		return invokeApp(browser,formattedDate,testCasefolder,false);
 	}
 
 	/**
@@ -96,7 +111,7 @@ public class GenericWrappers extends Reporter implements Wrappers {
 	 * @return 
 	 * 
 	 */
-	public RemoteWebDriver invokeApp(String browser, boolean bRemote) {
+	public RemoteWebDriver invokeApp(String browser,String formattedDate,String testCasefolder, boolean bRemote) {
 		try {
 
 			DesiredCapabilities dc = new DesiredCapabilities();
@@ -120,12 +135,21 @@ public class GenericWrappers extends Reporter implements Wrappers {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.get(sUrl);
 
-			primaryWindowHandle = driver.getWindowHandle();		
-			reportStep("The browser:" + browser + " launched successfully", "PASS");
+			primaryWindowHandle = driver.getWindowHandle();
+			/*Properties prop = new Properties();
+			try {
+				prop.load(new FileInputStream(new File("./src/main/resources/config.properties")));
+				prop.setProperty("TestCaseName",testCaseName);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}*/
+			reportStep("The browser:" + browser + " launched successfully",formattedDate,testCasefolder, "PASS");
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			reportStep("The browser:" + browser + " could not be launched", "FAIL");
+			reportStep("The browser:" + browser + " could not be launched",formattedDate,testCasefolder, "FAIL");
 		}
 		
 		return driver;
@@ -561,15 +585,25 @@ public class GenericWrappers extends Reporter implements Wrappers {
 
 	}
 
-	public String takeSnap(String formattedDate,int inc){
+	public String takeSnap(){
 		try {
-			FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE) , new File("./reports/"+formattedDate+"/images/"+inc+".jpg"));
+			FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE) , new File("./reports/1.jpg"));
 		} catch (WebDriverException e) {
 			reportStep("The browser has been closed.", "FAIL");
 		} catch (IOException e) {
 			reportStep("The snapshot could not be taken", "WARN");
 		}
-		return ""+inc;
+		return "1";
+	}
+	public String takeSnap(String formattedDate1,String testCasefolder){
+		try {
+			FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE) , new File("./reports/"+formattedDate1+"/"+testCasefolder+"/1.jpg"));
+		} catch (WebDriverException e) {
+			reportStep("The browser has been closed.", "FAIL");
+		} catch (IOException e) {
+			reportStep("The snapshot could not be taken", "WARN");
+		}
+		return testCasefolder+"/1.jpg";
 	}
 
 	@Override

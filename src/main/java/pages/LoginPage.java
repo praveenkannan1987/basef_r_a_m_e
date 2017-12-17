@@ -1,11 +1,7 @@
 package pages;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.FindBy;
-
 import com.relevantcodes.extentreports.ExtentTest;
-
 import wrappers.TestNGWrappers;
 
 public class LoginPage extends TestNGWrappers{
@@ -13,29 +9,19 @@ public class LoginPage extends TestNGWrappers{
 	public LoginPage(RemoteWebDriver driver, ExtentTest test){
 		this.driver = driver;
 		this.test = test;
-		if(!verifyTitle("Opentaps Open Source ERP + CRM")){
+		if(!verifyTitle("Gmail")){
 			reportStep("This is not Login Page", "FAIL");
 		}		
 	}
 	
-	/*@FindBy(name="uid")
-    WebElement userName;
-
-    
-
-    @FindBy(name="password")
-    WebElement password99Guru;*/
-
-
-	
 	public LoginPage enterUserName(String data){
-		enterById("username", data);
+		enterById(prop.getProperty("Login.UserName.Id"), data);
 		return this;
 	}
 	
 	
 	public LoginPage enterPassword(String data) {		
-		enterByName("PASSWORD", data);	
+		enterByName(prop.getProperty("Login.Password.Id"), data);	
 		return this;
 	}
 	

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="2" total="2" passed="0">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="23274" started-at="2017-12-13T19:27:48Z" finished-at="2017-12-13T19:28:11Z">
+  <suite name="Suite" duration-ms="21029" started-at="2017-12-17T19:14:52Z" finished-at="2017-12-17T19:15:13Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="23274" started-at="2017-12-13T19:27:48Z" finished-at="2017-12-13T19:28:11Z">
+    <test name="Test" duration-ms="21029" started-at="2017-12-17T19:14:52Z" finished-at="2017-12-17T19:15:13Z">
       <class name="testCases.TC001_Login">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeSuite" is-config="true" duration-ms="221" started-at="2017-12-14T00:57:47Z" finished-at="2017-12-14T00:57:48Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeSuite" is-config="true" duration-ms="212" started-at="2017-12-18T00:44:52Z" finished-at="2017-12-18T00:44:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeTest" is-config="true" duration-ms="0" started-at="2017-12-14T00:57:48Z" finished-at="2017-12-14T00:57:48Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeTest" is-config="true" duration-ms="0" started-at="2017-12-18T00:44:52Z" finished-at="2017-12-18T00:44:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="setValues()[pri:0, instance:testCases.TC001_Login@1275dab]" name="setValues" is-config="true" duration-ms="0" started-at="2017-12-14T00:57:48Z" finished-at="2017-12-14T00:57:48Z">
+        <test-method status="PASS" signature="setValues()[pri:0, instance:testCases.TC001_Login@1275dab]" name="setValues" is-config="true" duration-ms="1" started-at="2017-12-18T00:44:52Z" finished-at="2017-12-18T00:44:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setValues -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeMethod" is-config="true" duration-ms="8433" started-at="2017-12-14T00:57:48Z" finished-at="2017-12-14T00:57:57Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeMethod" is-config="true" duration-ms="7867" started-at="2017-12-18T00:44:52Z" finished-at="2017-12-18T00:45:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="loginLogOut(java.lang.String, java.lang.String)[pri:0, instance:testCases.TC001_Login@1275dab]" name="loginLogOut" duration-ms="598" started-at="2017-12-14T00:57:57Z" data-provider="fetchData" finished-at="2017-12-14T00:57:57Z">
+        <test-method status="PASS" signature="loginLogOut(java.lang.String, java.lang.String)[pri:0, instance:testCases.TC001_Login@1275dab]" name="loginLogOut" duration-ms="717" started-at="2017-12-18T00:45:00Z" data-provider="fetchData" finished-at="2017-12-18T00:45:01Z">
           <params>
             <param index="0">
               <value>
@@ -36,54 +36,18 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[FAILED]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: FAILED
-	at utils.Reporter.reportStep(Reporter.java:57)
-	at pages.LoginPage.<init>(LoginPage.java:17)
-	at testCases.TC001_Login.loginLogOut(TC001_Login.java:23)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginLogOut -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterMethod" is-config="true" duration-ms="2360" started-at="2017-12-14T00:57:57Z" finished-at="2017-12-14T00:58:00Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterMethod" is-config="true" duration-ms="200" started-at="2017-12-18T00:45:01Z" finished-at="2017-12-18T00:45:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeMethod" is-config="true" duration-ms="8494" started-at="2017-12-14T00:58:00Z" finished-at="2017-12-14T00:58:08Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="beforeMethod" is-config="true" duration-ms="8736" started-at="2017-12-18T00:45:01Z" finished-at="2017-12-18T00:45:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="loginLogOut(java.lang.String, java.lang.String)[pri:0, instance:testCases.TC001_Login@1275dab]" name="loginLogOut" duration-ms="584" started-at="2017-12-14T00:58:08Z" data-provider="fetchData" finished-at="2017-12-14T00:58:09Z">
+        <test-method status="PASS" signature="loginLogOut(java.lang.String, java.lang.String)[pri:0, instance:testCases.TC001_Login@1275dab]" name="loginLogOut" duration-ms="742" started-at="2017-12-18T00:45:10Z" data-provider="fetchData" finished-at="2017-12-18T00:45:11Z">
           <params>
             <param index="0">
               <value>
@@ -96,54 +60,18 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[FAILED]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: FAILED
-	at utils.Reporter.reportStep(Reporter.java:57)
-	at pages.LoginPage.<init>(LoginPage.java:17)
-	at testCases.TC001_Login.loginLogOut(TC001_Login.java:23)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginLogOut -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterMethod" is-config="true" duration-ms="2319" started-at="2017-12-14T00:58:09Z" finished-at="2017-12-14T00:58:11Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterMethod" is-config="true" duration-ms="2311" started-at="2017-12-18T00:45:11Z" finished-at="2017-12-18T00:45:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-12-14T00:58:11Z" finished-at="2017-12-14T00:58:11Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterTest" is-config="true" duration-ms="0" started-at="2017-12-18T00:45:13Z" finished-at="2017-12-18T00:45:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterSuite" is-config="true" duration-ms="252" started-at="2017-12-14T00:58:11Z" finished-at="2017-12-14T00:58:11Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testCases.TC001_Login@1275dab]" name="afterSuite" is-config="true" duration-ms="269" started-at="2017-12-18T00:45:13Z" finished-at="2017-12-18T00:45:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

@@ -15,7 +15,7 @@ public interface Wrappers {
 		 * @return 
 		 * 
 		 */
-		public RemoteWebDriver invokeApp(String browser);
+		public RemoteWebDriver invokeApp(String browser,String testCasefolder);
 
 		/**
 		 * This method will enter the value to the text field using id attribute to locate

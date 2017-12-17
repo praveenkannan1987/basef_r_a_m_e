@@ -15,21 +15,15 @@ public class TestNGWrappers extends GenericWrappers {
 	
 	public String browserName;
 	public String dataSheetName;
-	
+	public int testCaseInc;
 	protected Logger logger= Logger.getLogger(TestNGWrappers.class.getName());
 	
 
 	@BeforeSuite
 	public void beforeSuite(){
-		java.util.logging.Logger.getLogger("org.apache.http.wire").setLevel(java.util.logging.Level.FINEST);
-		java.util.logging.Logger.getLogger("org.apache.http.headers").setLevel(java.util.logging.Level.FINEST);
-		System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
-		System.setProperty("org.apache.commons.logging.simplelog.showdatetime", "true");
-		System.setProperty("org.apache.commons.logging.simplelog.log.httpclient.wire", "ERROR");
-		System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "ERROR");
-		System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http.headers", "ERROR");
+		suppressLogs();
 		logger.info("----------------------POM Started----------------------");
-		startResult();
+		startResult(folderCreation());
 	}
 
 	@BeforeTest
@@ -43,8 +37,8 @@ public class TestNGWrappers extends GenericWrappers {
 		test = startTestCase(testCaseName, testDescription);
 		test.assignCategory(category);
 		test.assignAuthor(authors);
-		invokeApp(browserName);
-		
+		invokeApp(browserName,testCaseName+"."+testCaseInc);
+		System.out.println(testCaseInc);
 	}
 		
 	@AfterSuite
@@ -60,6 +54,8 @@ public class TestNGWrappers extends GenericWrappers {
 	@AfterMethod
 	public void afterMethod(){
 		endTestcase();
+		testCaseInc=testCaseInc+1;
+		System.out.println(testCaseInc);
 		quitBrowser();
 		
 	}
